@@ -164,12 +164,10 @@ pipeline {
                     sh '''
                     rm -Rf .kube
                     mkdir .kube
-                    ls
+                    echo "KUBECONFIG content:"
+                    cat $KUBECONFIG
                     cat $KUBECONFIG > .kube/config
-                    cp fastapi/values.yaml values.yml
-                    cat values.yml
-                    sed -i "s+tag.*+tag: ${DOCKER_TAG}+g" values.yml
-                    helm upgrade --install app fastapi --values=values.yml --namespace prod
+                    helm upgrade --install my-app ./my-app --namespace prod --create-namespace 
                     '''
                 }
             }
