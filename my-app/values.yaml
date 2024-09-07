@@ -32,7 +32,7 @@ global:
 # Service de Cast
 castService:
   image:
-    repository: greglebreton/cast-service
+    repository: petitbou/cast-service
     tag: latest
   replicaCount: 1
   databaseURI: postgresql://cast_db_username:cast_db_password@cast-db/cast_db_dev
@@ -55,7 +55,7 @@ castDB:
 # Service de Film
 movieService:
   image:
-    repository: greglebreton/movie-service
+    repository: petitbou/movie-service
     tag: latest
   replicaCount: 1
   castServiceHostURL: http://cast-service:8000/api/v1/casts/
